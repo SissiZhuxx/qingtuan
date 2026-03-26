@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>王家沙青团图鉴 · 上海老字号</title>
+  <meta name="description" content="上海百年老字号王家沙的招牌青团图片精选，含专业点评，带你感受江南清明时节的传统美味。" />
+  <style>
+    :root {
+      --green-deep: #3a6b35;
+      --green-mid:  #5a9a50;
+      --green-light:#e8f3e5;
+      --gold:       #c9963a;
+      --text:       #2c2c2c;
+      --muted:      #888;
+      --card-bg:    #ffffff;
+      --page-bg:    #f4efe6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(160deg, #2d5a29 0%, #4f8c44 55%, #7ab86b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 20px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q40 15 30 25 Q20 15 30 5Z' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    .hero-icon { font-size: 3.2rem; margin-bottom: 10px; }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 6px;
+      margin-bottom: 10px;
+    }
+    .hero-sub {
+      font-size: 0.95rem;
+      opacity: 0.82;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+    .hero-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .hero-tag {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      max-width: 720px;
+      margin: 32px auto 8px;
+      padding: 0 20px;
+      text-align: center;
+      line-height: 1.85;
+      color: #555;
+      font-size: 0.93rem;
+    }
+    .intro strong { color: var(--green-deep); }
+
+    /* ── Stats bar ── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 1.7rem; font-weight: 700; color: var(--green-deep); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Gallery ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 0 24px 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform .22s ease, box-shadow .22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.13);
+    }
+    .card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 230px;
+      cursor: zoom-in;
+    }
+    .card-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+      background: #e8ede6;
+    }
+    .card:hover .card-img-wrap img { transform: scale(1.05); }
+    .card-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--green-deep);
+      color: #fff;
+      border-radius: 8px;
+      padding: 3px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+    }
+
+    .card-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 6px;
+    }
+    .stars { color: #e8a020; font-size: 0.9rem; margin-bottom: 8px; letter-spacing: 1px; }
+    .card-review {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.75;
+      flex: 1;
+    }
+    .card-tags {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 12px;
+    }
+    .card-tag {
+      background: var(--green-light);
+      color: var(--green-deep);
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 0.72rem;
+    }
+
+    /* ── Lightbox ── */
+    .lb {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .lb.on { display: flex; }
+    .lb-close {
+      position: fixed; top: 16px; right: 22px;
+      color: #fff; font-size: 2.2rem;
+      cursor: pointer; line-height: 1; z-index: 1000;
+      opacity: 0.8;
+    }
+    .lb-close:hover { opacity: 1; }
+    .lb img {
+      max-width: min(90vw, 860px);
+      max-height: 84vh;
+      border-radius: 10px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+      object-fit: contain;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--green-deep);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .gallery { grid-template-columns: 1fr; padding: 0 14px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-icon">🍃</div>
+  <h1>王家沙青团图鉴</h1>
+  <p class="hero-sub">上海百年老字号 · 清明时节第一团</p>
+  <div class="hero-tags">
+    <span class="hero-tag">📍 上海老字号</span>
+    <span class="hero-tag">🌿 艾叶青团</span>
+    <span class="hero-tag">⭐ 百年传承</span>
+    <span class="hero-tag">🎋 江南风味</span>
+  </div>
+</header>
+
+<p class="intro">
+  王家沙点心店创立于 <strong>1945年</strong>，是上海最负盛名的老字号之一。
+  每年清明前后，一口碧绿软糯的青团便是无数上海人魂牵梦萦的时令美味。
+  以下精选12张图片，配以点评，带你感受这份跨越世纪的江南滋味。
+</p>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">1945</div><div class="stat-label">创店年份</div></div>
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label">精选图片</div></div>
+  <div class="stat"><div class="stat-num">80+</div><div class="stat-label">年传承历史</div></div>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<!-- Lightbox -->
+<div class="lb" id="lb">
+  <span class="lb-close" onclick="closeLb()">×</span>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+<footer>
+  <div>🍃 王家沙青团图鉴 · 图片来源：百度图片 · 仅供欣赏与分享</div>
+  <div style="margin-top:6px">王家沙 · 上海南京西路805号 | 静安区本店</div>
+</footer>
+
+<script>
+const items = [
+  {
+    file: "qingtuan_01.jpg",
+    title: "经典艾草青团",
+    stars: 5,
+    review: "翠绿欲滴的外皮正是艾草汁揉入糯米粉的精华所在，色泽清新自然，未入口便已令人心旷神怡。王家沙的青团皮薄馅足，一口咬下清香扑鼻。",
+    tags: ["艾草皮", "经典款", "必买"]
+  },
+  {
+    file: "qingtuan_02.jpg",
+    title: "豆沙馅青团",
+    stars: 5,
+    review: "红豆沙馅绵密细腻、甜而不腻，这是王家沙最传统的经典口味。豆沙颗粒感恰到好处，与糯米皮的软糯完美融合，是老上海记忆里最熟悉的那种味道。",
+    tags: ["豆沙馅", "传统口味", "老字号"]
+  },
+  {
+    file: "qingtuan_03.jpg",
+    title: "盒装礼品青团",
+    stars: 5,
+    review: "精美礼盒包装，整齐码放的青团仿佛艺术品一般。送礼自用两相宜，深受白领和外地游客青睐。每年清明前后往往需要排队购买，手慢则无。",
+    tags: ["礼盒装", "伴手礼", "限定"]
+  },
+  {
+    file: "qingtuan_04.jpg",
+    title: "芝麻馅青团",
+    stars: 5,
+    review: "黑芝麻馅香气馥郁，比豆沙更加浓厚醇香。咬开外皮的瞬间，芝麻的香气立刻溢满口腔，与艾草的淡淡苦香相得益彰，层次分明。",
+    tags: ["芝麻馅", "香气浓郁", "推荐"]
+  },
+  {
+    file: "qingtuan_05.jpg",
+    title: "青团特写·皮质",
+    stars: 5,
+    review: "近距离观察可见青团表皮细腻光滑，带有天然艾草纹理，色泽均匀，绿意盎然。手工制作的痕迹赋予每一颗青团独特的温度，这正是机器无法复制的匠心之处。",
+    tags: ["手工制作", "细腻皮质", "匠心"]
+  },
+  {
+    file: "qingtuan_06.jpg",
+    title: "清明时节陈列",
+    stars: 4,
+    review: "店内清明节陈列展示，整排青团叠放其中，满目翠绿煞是好看。每年三四月，王家沙门口总是排起长龙，这份热度延续了几十年，足见其在上海人心中的地位。",
+    tags: ["店内陈列", "清明限定", "人气爆款"]
+  },
+  {
+    file: "qingtuan_07.jpg",
+    title: "鲜肉馅青团",
+    stars: 5,
+    review: "近年新推出的咸口鲜肉青团打破了传统甜口的框架，内馅鲜嫩多汁，略带葱香，咸甜两种风味的碰撞让不爱甜食的食客也能大快朵颐，是创新与传统的完美平衡。",
+    tags: ["鲜肉馅", "咸口", "创新口味"]
+  },
+  {
+    file: "qingtuan_08.jpg",
+    title: "剖面展示",
+    stars: 5,
+    review: "切开后可见馅料饱满、皮馅分层清晰，糯米皮厚薄均匀约3-4毫米，这个厚度是王家沙师傅经过长年磨练的黄金比例——既能保持形态，又不会掩盖馅香。",
+    tags: ["剖面", "馅料饱满", "比例完美"]
+  },
+  {
+    file: "qingtuan_09.jpg",
+    title: "春日摆盘",
+    stars: 5,
+    review: "搭配茶具与春花的精致摆盘，青团的颜色与春天的气息相互呼应。这样的场景让人想起江南三月烟雨蒙蒙，手捧一杯清茶，配一颗青团，便是极致的春日时光。",
+    tags: ["摆盘美学", "春日限定", "文艺感"]
+  },
+  {
+    file: "qingtuan_10.jpg",
+    title: "抹茶流心青团",
+    stars: 4,
+    review: "改良版的抹茶流心青团融合了日式抹茶元素，外皮更深绿，内有流动的奶黄馅，口感更加丰富细腻。年轻一代消费者对这款产品评价极高，是传统与时尚的大胆融合。",
+    tags: ["抹茶", "流心馅", "新派"]
+  },
+  {
+    file: "qingtuan_11.jpg",
+    title: "制作工艺展示",
+    stars: 5,
+    review: "师傅们每日清晨便开始备料，艾草需提前焯水去苦、榨汁，与糯米粉反复揉搓至色泽均匀。这道传承数十年的工序没有捷径，正是这份坚守成就了王家沙青团的口碑。",
+    tags: ["手工制作", "传统工艺", "匠人精神"]
+  },
+  {
+    file: "qingtuan_12.jpg",
+    title: "节日限定礼盒",
+    stars: 5,
+    review: "清明节限定礼盒融入了传统纹样设计，绿色主调配以金色字体，兼具颜值与实用。每年礼盒的包装设计都会微调，成为不少食客年年收集的理由，实为走亲访友的上乘之选。",
+    tags: ["限定礼盒", "节日礼品", "收藏价值"]
+  }
+];
+
+function stars(n) {
+  return "★".repeat(n) + "☆".repeat(5 - n);
+}
+
+const gallery = document.getElementById("gallery");
+items.forEach((item, i) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="card-img-wrap" onclick="openLb('${item.file}')">
+      <img src="${item.file}" alt="${item.title}" loading="lazy" />
+      <span class="card-badge">NO.${String(i+1).padStart(2,'0')}</span>
+    </div>
+    <div class="card-body">
+      <div class="card-title">${item.title}</div>
+      <div class="stars">${stars(item.stars)} <span style="color:#aaa;font-size:0.75rem;margin-left:4px">${item.stars}.0分</span></div>
+      <p class="card-review">${item.review}</p>
+      <div class="card-tags">${item.tags.map(t=>`<span class="card-tag">${t}</span>`).join("")}</div>
+    </div>
+  `;
+  gallery.appendChild(card);
+});
+
+function openLb(src) {
+  document.getElementById("lb-img").src = src;
+  document.getElementById("lb").classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function closeLb() {
+  document.getElementById("lb").classList.remove("on");
+  document.body.style.overflow = "";
+}
+document.getElementById("lb").addEventListener("click", e => {
+  if (e.target === document.getElementById("lb")) closeLb();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+</script>
+</body>
+</html>

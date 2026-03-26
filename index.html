@@ -74,20 +74,61 @@
     }
     .intro strong { color: var(--green-deep); }
 
-    /* ── Stats bar ── */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px;
-      max-width: 600px;
-      margin: 0 auto 28px;
+    /* ── 产品介绍 ── */
+    .products {
+      max-width: 900px;
+      margin: 0 auto 36px;
+      padding: 0 20px;
     }
-    .stat { text-align: center; }
-    .stat-num { font-size: 1.7rem; font-weight: 700; color: var(--green-deep); }
-    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .products-title {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--green-deep);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .product-section {
+      margin-bottom: 28px;
+    }
+    .product-section h3 {
+      font-size: 1.05rem;
+      color: var(--green-deep);
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--green-light);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .product-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.7;
+    }
 
     /* ── Gallery ── */
+    .gallery-title {
+      text-align: center;
+      font-size: 1.3rem;
+      color: var(--green-deep);
+      margin: 40px auto 24px;
+      padding: 0 20px;
+      font-weight: 600;
+    }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -221,15 +262,63 @@
 <p class="intro">
   王家沙点心店创立于 <strong>1945年</strong>，是上海最负盛名的老字号之一。
   每年清明前后，一口碧绿软糯的青团便是无数上海人魂牵梦萦的时令美味。
-  以下精选12张图片，配以点评，带你感受这份跨越世纪的江南滋味。
 </p>
 
-<div class="stats">
-  <div class="stat"><div class="stat-num">1945</div><div class="stat-label">创店年份</div></div>
-  <div class="stat"><div class="stat-num">12</div><div class="stat-label">精选图片</div></div>
-  <div class="stat"><div class="stat-num">80+</div><div class="stat-label">年传承历史</div></div>
+<!-- 产品介绍 -->
+<div class="products">
+  <h2 class="products-title">🏆 目前主要产品</h2>
+  
+  <div class="product-section">
+    <h3>🍡 甜味系列</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-name">艾叶豆沙青团</div>
+        <div class="product-desc">
+          王家沙最经典的招牌口味，采用正宗艾叶捣汁入皮，豆沙馅选用上等红小豆手工炒制，绵密细腻、甜而不腻，甜度经过改良，对老年人更加友好。艾叶皮的清香与豆沙的甘甜完美融合，是老上海人最熟悉的那一味。
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-name">艾叶枣粒核桃青团</div>
+        <div class="product-desc">
+          养生系新口味，精选红枣去核切粒，搭配脆香核桃仁，甜中带香、口感丰富。艾叶皮的草本清香与红枣的天然甜味相得益彰，核桃增添咀嚼乐趣，是注重健康的中老年食客的心头好。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-section">
+    <h3>🍖 咸味系列</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-name">艾叶蛋黄肉松青团</div>
+        <div class="product-desc">
+          王家沙人气最高的网红款！选用咸蛋黄 + 优质肉松，咸蛋黄起沙流油，肉松纤维分明，两者搅拌均匀后包入艾叶皮中，咸香适口、层次丰富。目前仅有蛋黄肉松和豆沙口味采用艾叶皮，每天限量供应，购买需趁早排队。
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-name">黑松露虾笋鲜肉青团</div>
+        <div class="product-desc">
+          2025年全新推出的高端限定款，黑松露独特菌香与鲜虾的鲜甜完美融合，再加入春笋丁增添脆爽口感。馅料饱满、鲜香四溢，是传统老字号与法式食材的大胆碰撞送礼首选，但因成本较高，每年仅在清明前限量发售。
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-name">马兰头青团</div>
+        <div class="product-desc">
+          典型的江南春日野菜风味，马兰头是清明时节特有的野生蔬菜，焯水后切碎与香干末拌匀，保留了野菜的清香与微苦。馅料碧绿天然，口感清爽不腻，是老上海人记忆里的"妈妈味道"，深得注重健康的食客青睐。
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-name">荠菜肉青团</div>
+        <div class="product-desc">
+          经典咸口青团的代表，荠菜是春季最常见的野菜之一，与猪肉馅拌匀后包入糯米皮，荠菜的清香完全融入肉馅，一口咬下满口鲜香。野菜的微微涩感中和了肉的油腻，整体口感清爽回甘，是很多老上海人清明必尝的传统滋味。
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
+<!-- 更多点评池 -->
+<h2 class="gallery-title">📷 更多点评池</h2>
 <div class="gallery" id="gallery"></div>
 
 <!-- Lightbox -->
@@ -240,7 +329,6 @@
 
 <footer>
   <div>🍃 王家沙青团图鉴 · 图片来源：百度图片 · 仅供欣赏与分享</div>
-  <div style="margin-top:6px">王家沙 · 上海南京西路805号 | 静安区本店</div>
 </footer>
 
 <script>

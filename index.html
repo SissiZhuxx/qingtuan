@@ -105,8 +105,18 @@
     .product-card {
       background: #fff;
       border-radius: 12px;
-      padding: 16px;
+      overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: #e8ede6;
+    }
+    .product-info {
+      padding: 14px;
     }
     .product-name {
       font-size: 0.95rem;
@@ -266,21 +276,27 @@
 
 <!-- 产品介绍 -->
 <div class="products">
-  <h2 class="products-title">🏆 目前主要产品</h2>
+  <h2 class="products-title">🏆 青团天花板系列</h2>
   
   <div class="product-section">
     <h3>🍡 甜味系列</h3>
     <div class="product-grid">
       <div class="product-card">
-        <div class="product-name">艾叶豆沙青团</div>
-        <div class="product-desc">
-          王家沙最经典的招牌口味，采用正宗艾叶捣汁入皮，豆沙馅选用上等红小豆手工炒制，绵密细腻、甜而不腻，甜度经过改良，对老年人更加友好。艾叶皮的清香与豆沙的甘甜完美融合，是老上海人最熟悉的那一味。
+        <img src="qingtuan_02.jpg" alt="艾叶豆沙青团" />
+        <div class="product-info">
+          <div class="product-name">艾叶豆沙青团</div>
+          <div class="product-desc">
+            王家沙最经典的招牌口味，采用正宗艾叶捣汁入皮，豆沙馅选用上等红小豆手工炒制，绵密细腻、甜而不腻。艾叶皮的清香与豆沙的甘甜完美融合，是老上海人最熟悉的那一味。
+          </div>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-name">艾叶枣粒核桃青团</div>
-        <div class="product-desc">
-          养生系新口味，精选红枣去核切粒，搭配脆香核桃仁，甜中带香、口感丰富。艾叶皮的草本清香与红枣的天然甜味相得益彰，核桃增添咀嚼乐趣，是注重健康的中老年食客的心头好。
+        <img src="qingtuan_04.jpg" alt="艾叶枣粒核桃青团" />
+        <div class="product-info">
+          <div class="product-name">艾叶枣粒核桃青团</div>
+          <div class="product-desc">
+            养生系新口味，精选红枣去核切粒，搭配脆香核桃仁，甜中带香、口感丰富。艾叶皮的草本清香与红枣的天然甜味相得益彰，核桃增添咀嚼乐趣，是注重健康的中老年食客的心头好。
+          </div>
         </div>
       </div>
     </div>
@@ -290,27 +306,39 @@
     <h3>🍖 咸味系列</h3>
     <div class="product-grid">
       <div class="product-card">
-        <div class="product-name">艾叶蛋黄肉松青团</div>
-        <div class="product-desc">
-          王家沙人气最高的网红款！选用咸蛋黄 + 优质肉松，咸蛋黄起沙流油，肉松纤维分明，两者搅拌均匀后包入艾叶皮中，咸香适口、层次丰富。目前仅有蛋黄肉松和豆沙口味采用艾叶皮，每天限量供应，购买需趁早排队。
+        <img src="qingtuan_01.jpg" alt="艾叶蛋黄肉松青团" />
+        <div class="product-info">
+          <div class="product-name">艾叶蛋黄肉松青团</div>
+          <div class="product-desc">
+            王家沙人气最高的网红款！选用咸蛋黄 + 优质肉松，咸蛋黄起沙流油，肉松纤维分明，两者搅拌均匀后包入艾叶皮中，咸香适口、层次丰富。目前仅有蛋黄肉松和豆沙口味采用艾叶皮，每天限量供应，购买需趁早排队。
+          </div>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-name">黑松露虾笋鲜肉青团</div>
-        <div class="product-desc">
-          2025年全新推出的高端限定款，黑松露独特菌香与鲜虾的鲜甜完美融合，再加入春笋丁增添脆爽口感。馅料饱满、鲜香四溢，是传统老字号与法式食材的大胆碰撞送礼首选，但因成本较高，每年仅在清明前限量发售。
+        <img src="qingtuan_07.jpg" alt="黑松露虾笋鲜肉青团" />
+        <div class="product-info">
+          <div class="product-name">黑松露虾笋鲜肉青团</div>
+          <div class="product-desc">
+            2025年全新推出的高端限定款，黑松露独特菌香与鲜虾的鲜甜完美融合，再加入春笋丁增添脆爽口感。馅料饱满、鲜香四溢，是传统老字号与法式食材的大胆碰撞，送礼首选，但因成本较高，每年仅在清明前限量发售。
+          </div>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-name">马兰头青团</div>
-        <div class="product-desc">
-          典型的江南春日野菜风味，马兰头是清明时节特有的野生蔬菜，焯水后切碎与香干末拌匀，保留了野菜的清香与微苦。馅料碧绿天然，口感清爽不腻，是老上海人记忆里的"妈妈味道"，深得注重健康的食客青睐。
+        <img src="qingtuan_05.jpg" alt="马兰头青团" />
+        <div class="product-info">
+          <div class="product-name">马兰头青团</div>
+          <div class="product-desc">
+            典型的江南春日野菜风味，马兰头是清明时节特有的野生蔬菜，焯水后切碎与香干末拌匀，保留了野菜的清香与微苦。馅料碧绿天然，口感清爽不腻，是老上海人记忆里的"妈妈味道"，深得注重健康的食客青睐。
+          </div>
         </div>
       </div>
       <div class="product-card">
-        <div class="product-name">荠菜肉青团</div>
-        <div class="product-desc">
-          经典咸口青团的代表，荠菜是春季最常见的野菜之一，与猪肉馅拌匀后包入糯米皮，荠菜的清香完全融入肉馅，一口咬下满口鲜香。野菜的微微涩感中和了肉的油腻，整体口感清爽回甘，是很多老上海人清明必尝的传统滋味。
+        <img src="qingtuan_06.jpg" alt="荠菜肉青团" />
+        <div class="product-info">
+          <div class="product-name">荠菜肉青团</div>
+          <div class="product-desc">
+            经典咸口青团的代表，荠菜是春季最常见的野菜之一，与猪肉馅拌匀后包入糯米皮，荠菜的清香完全融入肉馅，一口咬下满口鲜香。野菜的微微涩感中和了肉的油腻，整体口感清爽回甘，是很多老上海人清明必尝的传统滋味。
+          </div>
         </div>
       </div>
     </div>
@@ -334,55 +362,6 @@
 <script>
 const items = [
   {
-    file: "qingtuan_01.jpg",
-    title: "经典艾草青团",
-    stars: 5,
-    review: "翠绿欲滴的外皮正是艾草汁揉入糯米粉的精华所在，色泽清新自然，未入口便已令人心旷神怡。王家沙的青团皮薄馅足，一口咬下清香扑鼻。",
-    tags: ["艾草皮", "经典款", "必买"]
-  },
-  {
-    file: "qingtuan_02.jpg",
-    title: "豆沙馅青团",
-    stars: 5,
-    review: "红豆沙馅绵密细腻、甜而不腻，这是王家沙最传统的经典口味。豆沙颗粒感恰到好处，与糯米皮的软糯完美融合，是老上海记忆里最熟悉的那种味道。",
-    tags: ["豆沙馅", "传统口味", "老字号"]
-  },
-  {
-    file: "qingtuan_03.jpg",
-    title: "盒装礼品青团",
-    stars: 5,
-    review: "精美礼盒包装，整齐码放的青团仿佛艺术品一般。送礼自用两相宜，深受白领和外地游客青睐。每年清明前后往往需要排队购买，手慢则无。",
-    tags: ["礼盒装", "伴手礼", "限定"]
-  },
-  {
-    file: "qingtuan_04.jpg",
-    title: "芝麻馅青团",
-    stars: 5,
-    review: "黑芝麻馅香气馥郁，比豆沙更加浓厚醇香。咬开外皮的瞬间，芝麻的香气立刻溢满口腔，与艾草的淡淡苦香相得益彰，层次分明。",
-    tags: ["芝麻馅", "香气浓郁", "推荐"]
-  },
-  {
-    file: "qingtuan_05.jpg",
-    title: "青团特写·皮质",
-    stars: 5,
-    review: "近距离观察可见青团表皮细腻光滑，带有天然艾草纹理，色泽均匀，绿意盎然。手工制作的痕迹赋予每一颗青团独特的温度，这正是机器无法复制的匠心之处。",
-    tags: ["手工制作", "细腻皮质", "匠心"]
-  },
-  {
-    file: "qingtuan_06.jpg",
-    title: "清明时节陈列",
-    stars: 4,
-    review: "店内清明节陈列展示，整排青团叠放其中，满目翠绿煞是好看。每年三四月，王家沙门口总是排起长龙，这份热度延续了几十年，足见其在上海人心中的地位。",
-    tags: ["店内陈列", "清明限定", "人气爆款"]
-  },
-  {
-    file: "qingtuan_07.jpg",
-    title: "鲜肉馅青团",
-    stars: 5,
-    review: "近年新推出的咸口鲜肉青团打破了传统甜口的框架，内馅鲜嫩多汁，略带葱香，咸甜两种风味的碰撞让不爱甜食的食客也能大快朵颐，是创新与传统的完美平衡。",
-    tags: ["鲜肉馅", "咸口", "创新口味"]
-  },
-  {
     file: "qingtuan_08.jpg",
     title: "剖面展示",
     stars: 5,
@@ -398,10 +377,10 @@ const items = [
   },
   {
     file: "qingtuan_10.jpg",
-    title: "抹茶流心青团",
+    title: "店内陈列",
     stars: 4,
-    review: "改良版的抹茶流心青团融合了日式抹茶元素，外皮更深绿，内有流动的奶黄馅，口感更加丰富细腻。年轻一代消费者对这款产品评价极高，是传统与时尚的大胆融合。",
-    tags: ["抹茶", "流心馅", "新派"]
+    review: "店内清明节陈列展示，整排青团叠放其中，满目翠绿煞是好看。每年三四月，王家沙门口总是排起长龙，这份热度延续了几十年，足见其在上海人心中的地位。",
+    tags: ["店内陈列", "清明限定", "人气爆款"]
   },
   {
     file: "qingtuan_11.jpg",
@@ -414,8 +393,15 @@ const items = [
     file: "qingtuan_12.jpg",
     title: "节日限定礼盒",
     stars: 5,
-    review: "清明节限定礼盒融入了传统纹样设计，绿色主调配以金色字体，兼具颜值与实用。每年礼盒的包装设计都会微调，成为不少食客年年收集的理由，实为走亲访友的上乘之选。",
+    review: "清明节限定礼盒融入了传统纹样设计，绿色主配送以金色字体，兼具颜值与实用。每年礼盒的包装设计都会微调，成为不少食客年年收集的理由，实为走亲访友的上乘之选。",
     tags: ["限定礼盒", "节日礼品", "收藏价值"]
+  },
+  {
+    file: "qingtuan_03.jpg",
+    title: "盒装礼品青团",
+    stars: 5,
+    review: "精美礼盒包装，整齐码放的青团仿佛艺术品一般。送礼自用两相宜，深受白领和外地游客青睐。每年清明前后往往需要排队购买，手慢则无。",
+    tags: ["礼盒装", "伴手礼", "限定"]
   }
 ];
 
